@@ -2,6 +2,9 @@ package ru.practicum.android.diploma.data.filter.impl
 
 import android.content.SharedPreferences
 import com.google.gson.Gson
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import ru.practicum.android.diploma.domain.filter.FilterRepository
 import ru.practicum.android.diploma.domain.filter.entity.Filter
 import ru.practicum.android.diploma.domain.filter.entity.FilterSetting
@@ -10,6 +13,7 @@ class FilterRepositoryImpl(
     private val sharedPreference: SharedPreferences,
     private val gson: Gson
 ) : FilterRepository {
+    private val mutableState = MutableStateFlow(getFromStorage())
     override fun saveSetting(setting: FilterSetting) {
         val filter = getFromStorage() ?: Filter()
 
@@ -18,12 +22,14 @@ class FilterRepositoryImpl(
             setting
         )
         saveToStorage(filter)
-
+        mutableState.value = filter
     }
 
     override fun getFilter(): Filter? {
         return getFromStorage()
     }
+
+    override fun getFilterFlow(): StateFlow<Filter?> = mutableState.asStateFlow()
 
     override fun isFilterPresent(): Boolean {
         val filter = getFromStorage() ?: return false

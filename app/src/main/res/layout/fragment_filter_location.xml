@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.filterlocation.FilterLocationFragment">
 
     <ImageView
@@ -41,25 +41,26 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:background="?attr/colorPrimary"
-        android:hint="@string/country"
         android:gravity="center_vertical"
-        android:textColorHint="@color/gray_B4"
-        app:hintTextColor="?attr/colorOnPrimary"
+        android:hint="@string/country"
+        android:inputType="none"
+        app:boxStrokeWidth="0dp"
+        app:boxStrokeWidthFocused="0dp"
         app:endIconDrawable="@drawable/arrow_forward_ic"
         app:endIconMode="custom"
         app:endIconTint="?attr/colorOnPrimary"
-        app:boxStrokeWidth="0dp"
-        android:inputType="none"
-        app:boxStrokeWidthFocused="0dp"
+        app:hintTextColor="?attr/colorOnPrimary"
         app:layout_constraintTop_toBottomOf="@id/guideline_top">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edittext_vacancy_country"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:paddingBottom="0dp"
-            android:enabled="false"
             android:background="?attr/colorPrimary"
+            android:clickable="true"
+            android:focusable="false"
+            android:cursorVisible="false"
+            android:paddingBottom="0dp"
             android:textAppearance="@style/p_text_style" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -68,25 +69,26 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:background="?attr/colorPrimary"
-        android:hint="@string/region"
         android:gravity="center_vertical"
-        android:textColorHint="@color/gray_B4"
-        app:hintTextColor="?attr/colorOnPrimary"
+        android:hint="@string/region"
+        android:inputType="none"
+        app:boxStrokeWidth="0dp"
+        app:boxStrokeWidthFocused="0dp"
         app:endIconDrawable="@drawable/arrow_forward_ic"
         app:endIconMode="custom"
         app:endIconTint="?attr/colorOnPrimary"
-        app:boxStrokeWidth="0dp"
-        app:boxStrokeWidthFocused="0dp"
-        android:inputType="none"
+        app:hintTextColor="?attr/colorOnPrimary"
         app:layout_constraintTop_toBottomOf="@id/textlayout_vacancy_country">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edittext_vacancy_region"
-            android:enabled="false"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:paddingBottom="0dp"
             android:background="?attr/colorPrimary"
+            android:clickable="true"
+            android:focusable="false"
+            android:cursorVisible="false"
+            android:paddingBottom="0dp"
             android:textAppearance="@style/p_text_style" />
     </com.google.android.material.textfield.TextInputLayout>
 

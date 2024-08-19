@@ -39,6 +39,7 @@ class FilterLocationFragment : BindingFragment<FragmentFilterLocationBinding>() 
         findNavController().navigate(R.id.action_filterLocationFragment_to_filterRegionFragment)
     }
 
+    @Suppress("detekt.CognitiveComplexMethod")
     private fun renderState(state: FilterLocationState) {
         listOf(binding.textlayoutVacancyCountry, binding.textlayoutVacancyRegion)
             .zip(listOf(binding.edittextVacancyCountry, binding.edittextVacancyRegion))
@@ -67,7 +68,6 @@ class FilterLocationFragment : BindingFragment<FragmentFilterLocationBinding>() 
                             1 -> viewModel.clearRegion()
                         }
                     }
-
                 }
             }
     }

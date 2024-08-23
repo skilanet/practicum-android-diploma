@@ -88,8 +88,8 @@ class SearchFragment : BindingFragment<FragmentSearchBinding>() {
         viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.observeTotalFoundState().collect {
-                    it?.let { updateResultText(it) }
-                    if (it == 0) showError(ErrorType.EMPTY)
+                    it?.let { updateResultText(it.count) }
+                    if (it?.count == 0) showError(ErrorType.EMPTY)
                 }
             }
         }

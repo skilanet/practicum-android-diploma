@@ -7,9 +7,11 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.cachedIn
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.launch
 import ru.practicum.android.diploma.domain.filter.FilterInteractor
+import ru.practicum.android.diploma.domain.models.TotalFound
 import ru.practicum.android.diploma.domain.search.SearchInteractor
 import ru.practicum.android.diploma.domain.search.entity.ErrorType
 import ru.practicum.android.diploma.domain.search.entity.SearchState
@@ -26,7 +28,7 @@ class SearchViewModel(
     private var latestSearchText: String? = null
     private val filterEnableState = MutableLiveData<Boolean>()
     fun observeFilterEnableState(): LiveData<Boolean> = filterEnableState
-    fun observeTotalFoundState(): Flow<Int?> = searchInteractor.totalFoundFlow
+    fun observeTotalFoundState(): StateFlow<TotalFound?> = searchInteractor.totalFoundFlow
 
     fun onSearchTextChanged(
         p0: CharSequence?,

@@ -70,7 +70,7 @@
                     android:hint="@string/search_edittext_hint"
                     android:imeOptions="actionDone"
                     android:onTextChanged="@{viewmodel::onSearchTextChanged}"
-                    android:singleLine="true"
+                    android:maxLines="2"
                     android:text="@={viewmodel.searchTextState}"
                     android:fontFamily="@font/ys_display_regular"
                     android:textColor="@color/main_black_22"
